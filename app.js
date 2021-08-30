@@ -25,7 +25,7 @@ canvas.addEventListener('mousemove', e => {
     }
 });
 agrandar.addEventListener('click', ()=>{
-    pincel += incremento; 
+    pincel += incremento;
 });
 
 achicar.addEventListener('click', ()=>{
