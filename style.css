@@ -52,3 +52,11 @@ canvas {
 .tools button:active {
     background-color: rgba(221, 221, 221, 0.5);
 }
+
+#advertencia {
+    display: block;
+    text-align: center;
+    margin: 1rem auto;
+    color: #FFB584;
+    
+}
