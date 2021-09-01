@@ -11,17 +11,20 @@ let stop = true;
 let pincel = 20;
 let color = '#000000';
 let colorAnt = '#000000';
+let xi,yi;
 
 canvas.width = window.innerWidth * 0.8;
 canvas.height = window.innerHeight * 0.8;
 
-canvas.addEventListener('mousedown', ()=>{stop = false});
-canvas.addEventListener('mouseup', ()=>{stop = true});
+canvas.addEventListener('mousedown', e =>{stop = false; xi = e.offsetX; yi = e.offsetY});
+canvas.addEventListener('mouseup', e =>{stop = true; xi = e.offsetX; yi = e.offsetY});
 canvas.addEventListener('mousemove', e => {
     if (!stop) {
         const xf = e.offsetX;
         const yf = e.offsetY;
         circulo(xf, yf);
+        linea(xi, yi, xf, yf,);
+        xi = xf; yi = yf;
     }
 });
 
@@ -44,4 +47,13 @@ function circulo(xf, yf) {
     ctx.beginPath();
     ctx.arc(xf, yf, pincel , 0, Math.PI*2 , false);
     ctx.fill();    
+}
+
+function linea(xi, yi, xf, yf) {
+    ctx.beginPath();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = pincel*2;
+    ctx.moveTo(xi, yi);    
+    ctx.lineTo(xf, yf);
+    ctx.stroke();  
 }
